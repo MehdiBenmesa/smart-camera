@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="/static/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="/static/css/style.css"> <!-- Resource style -->
+	<script src="/static/js/modernizr.js"></script> <!-- Modernizr -->
+	<script   src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
+    <script src="/static/js/main.js"></script> <!-- Resource jQuery -->
+	<title>Smart Camera for Facial and Fashion recognition</title>
+</head>
+<body>
+<main id="cd-main-content">
+	<section id="cd-intro">
+        <div class="video-container">
+			<img id="image" src="{{ url_for('video')  }}">
+			<div class="alert" id="alert-box">
+			  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+			  <strong>We couldn't identify you </strong> please register
+			</div>
+        </div>
+		<header class="cd-header">
+			<div id="cd-logo"><a href="{{ url_for('index')}}"><img src="/static/img/cd-logo.png" alt="Logo"></a></div>
+			<div id="sm-buttons">
+				<button id="take_picture" onclick="imageProcessor.takePicture()">Check me</button>
+				<button id="reset_video" onclick="imageProcessor.resetVideo()">Reset</button>
+				<button id="save" onclick="window.location.href = '{{ url_for('register')}}'">Register</button>
+			</div>
+			<a class="cd-menu-trigger" href="#main-nav">Menu<span></span></a>
+		</header>
+		<div class="sm-aside">
+			<div class="user user-0">
+				<div class="photo">
+					<img id="profile_pic" src="/static/img/default.png" alt=" PHOTO">
+				</div>
+				<div class="details">
+					<div class="name">
+						<span class="label">Name</span>
+						<span class="value" id="name" >Jhon Due</span>
+					</div>
+					<div class="birthday">
+						<span class="label">Birthday</span>
+						<span class="value" id="birthday" >10/08/1987</span>
+					</div>
+					<div class="company">
+						<span class="label">Company</span>
+						<span class="value"  id="company" >Any Company</span>
+					</div>
+					<div class="email">
+						<span class="label">Email</span>
+						<span class="value" id="email" >Jhon.due@gmail.com</span>
+					</div>
+					<div class="bio">
+						<span class="label">Clothes</span>
+						<span class="value" >Jeans and sweather</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cd-blurred-bg"></div>
+
+	</section> <!-- cd-intro -->
+</main>
+
+<div class="cd-shadow-layer"></div>
+
+
+<script src="/static/js/app.js"></script>
+</body>

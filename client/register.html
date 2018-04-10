@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="/static/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="/static/css/style.css"> <!-- Resource style -->
+	<script src="/static/js/modernizr.js"></script> <!-- Modernizr -->
+    <script   src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
+    <script src="/static/js/main.js"></script> <!-- Resource jQuery -->
+	<title>Smart Camera for Facial and Fashion recognition</title>
+</head>
+<body>
+<main id="cd-main-content">
+	<section id="cd-intro">
+        <div class="register-message" id="register-box" >
+			  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+			  <strong>Please sit still and face the camera while we process your pictures</strong>
+        </div>
+        <div id="regForm">
+              <h1>Register:</h1>
+              <!-- One "tab" for each step in the form: -->
+              <div class="tab">Personal Information
+                <p><input placeholder="First name..." oninput="this.className = ''" name="fname" id="firstName"></p>
+                <p><input placeholder="Last name..." oninput="this.className = ''" name="lname" id="lastName"></p>
+                  <p><input placeholder="date of birth dd/mm/yyyy..." oninput="this.className = ''" name="birthday" id="birthday"></p>
+
+                  <p><form name="uploadForm" enctype="multipart/form-data" id="image-form" action = "{{ url_for('upload')}}" method = "POST"><input type="file" placeholder="date of birth dd/mm/yyyy..." oninput="this.className = ''" name="file" id="image"></form></p>
+
+
+              </div>
+              <div class="tab">Contact Infomation:
+                <p><input placeholder="E-mail..." oninput="this.className = ''" name="email" id="email"></p>
+                <p><input placeholder="Company..." oninput="this.className = ''" name="company" id="company"></p>
+              </div>
+            <div class="tab">
+                 <div class="video-container" style="width: 100%">
+			        <img id="image" src="{{ url_for('video')  }}">
+                 </div>
+              </div>
+              <div style="overflow:auto;">
+                <div style="float:right;">
+                  <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                  <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                </div>
+              </div>
+              <!-- Circles which indicates the steps of the form: -->
+              <div style="text-align:center;margin-top:40px;">
+                <span class="step"></span>
+                <span class="step"></span>
+                  <span class="step"></span>
+              </div>
+        </div>
+		<header class="cd-header">
+			<div id="cd-logo"><a href="{{ url_for('index')}}"><img src="/static/img/cd-logo.png" alt="Logo"></a></div>
+		</header>
+
+		<div class="cd-blurred-bg"></div>
+
+	</section> <!-- cd-intro -->
+</main>
+
+<div class="cd-shadow-layer"></div>
+
+
+
+<script src="/static/js/app.js"></script>
+</body>
